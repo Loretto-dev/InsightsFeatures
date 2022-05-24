@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ----------------------------- estilos CSS ----------------------------- -->
+    <link rel="stylesheet" href="./styles/tarefas.css">
+    <link rel="stylesheet" href="./styles/memory.css">
+      <!-- ------------------- Biblioteca de icones - Fontawesome -------------------- -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- ----------------------------- sweet alert ----------------------------- -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- CDN example (unpkg) -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!--O header irá usar o script tarefas.js-->
+    <header>
+        <nav>
+          <a href="#">Jogo da Memória</a>
+        </nav>
+    
+        <div class="user-info">
+          <p id="userName">Nome usuário</p>
+          <div id="userImage"></div>
+          <p id="closeApp">Finalizar sessão</p>
+        </div>
+      </header>
+    <!--A div irá usar o script memory.js-->
+    <!-- Cards -->
+    <!-- Jogo começa aqui -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Jogo da Memória</h1>
+            <p class="lead">Concentre-se e use a sua memória para encontrar todos os pares neste jogo que tem quatro
+                níveis de dificuldade (fácil, médio, difícil e muito difícil).</p>
+        </div>
+    </div>
+    <div class="container-fluid-game">
+        <div class="row-container-game">
+            <div class="container-game">
+                <div id="game">
+                    <div id="level-wrapper" class="text-center mb-3">
+                        <select id="level" class="form-select form-select-sm w-auto d-inline">
+                            <option value="0">Nível Fácil</option>
+                            <option value="1" selected="">Nível Médio</option>
+                            <option value="2">Nível Difícil</option>
+                            <option value="3">Nível Muito Difícil</option>
+                        </select>
+                    </div>
+                    <!-- DIV 1 FLIP -->
+                    <section class="container-flex">
+                        <div id="cards-wrapper" class="medium">
+                            
+
+                            <!-- CARDS DO JOGO -->
+                            <input type="checkbox" id="switch" />
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/cartao_sd.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/cooler.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/cpu.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/desktop.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/digital_case.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/fonte.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/leitor_cd.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/microfone.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/monitor.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/mouse.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/pen_drive.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/placa_de_video.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/placa_mae.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/ram.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/rede.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/scanner.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/ssd.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/teclado.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/webcam.png"/>
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/impressora.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flip-container" for="switch" >
+                                <div class="flipper">
+                                    <div class="back">
+                                    <img id="icones" src="./assets/icons/Icons/ventilador.png" />
+                                    </div>
+                                    <div class="front">
+                                    <img id="icones" src="./assets/icons/Icons/carta.png" />
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jogo acaba aqui -->
+
+    <!-- Script Vitória -->
+    <script type="text/html" id="templateBody-end-game">
+        <div class="top">
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <img src="/static/images/trophy.svg" alt="Troféu" width="100" height="100"/>
+            <h3>Parabéns, você ganhou!</h3>
+            
+    <p>Parabéns, você terminou esse jogo da memória. Experimente jogar uma outra dificuldade ou jogue na mesma novamente.</p>
+
+    <p class="text-center"><button class="btn btn-success btn-sm" onclick="javascript:location.reload()">Jogar Novamente</button></p>
+
+    <p>Confira outros jogos que você também pode gostar:</p>
+    <ul>
+        <li><a href="/palavras/anagramas/">Anagramas</a></li>
+        <li><a href="/palavras/caca-palavras/">Caça Palavras</a></li>
+        <li><a href="/palavras/jogo-da-forca/">Jogo da Forca</a></li>
+    </ul>
+        </div>
+    </script>
+        <!-- Publicidade SITE -->
+    <!-- <div class="ads-margin-both">
+
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6485721149083718"
+            data-ad-slot="3376095154" data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div> -->
+
+
+    
+  <script src="./js/tarefas.js" defer></script>
+  <script>
+    AOS.init();
+  </script>
+
+
+</body>
+</html>

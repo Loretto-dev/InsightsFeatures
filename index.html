@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+
+  <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
+  <link rel="stylesheet" href="styles/acesso.css">
+
+  <!-- ---------------------- lógica aplicada no login ----------------------- -->
+</head>
+
+<body>
+  <div class="left">
+    <img src="./assets/pessoas-login.png" alt="">
+  </div>
+
+  <div class="right">
+    <form>
+      <div class="form-header">
+        <p><img src="/assets/login.png"></p>
+      </div>
+      <h1>Acessar</h1>
+
+
+      <label>
+        Email:
+        <input id="inputEmail" type="email" pattern="(\w\.?)+@[\w\.-]+\.\w{2,4}" placeholder="Ex: seu_email@mail.com" required autofocus>
+      </label>
+      <label>
+        Senha:
+        <input id="inputPassword" type="password" pattern="(?=.*\d)(?=.*[a-z]).{4,}" placeholder="Ex: ab12" required>
+      </label>
+      <!-- disabled="false" Habilitar o disabled -->
+      <button class="button" type="submit" disabled>Acessar</button>
+
+    </form>
+    <div class="ingressar">
+      <a href="signup.html">Não possui conta? Crie agora mesmo</a>
+    </div>
+  </div>
+  <script src="/js/main.js" defer></script>
+</body>
+
+</html>
